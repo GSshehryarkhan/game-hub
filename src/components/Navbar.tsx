@@ -4,11 +4,15 @@ import randomImage from "../assets/random.jpg";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-const Navbar = () => {
+interface Props {
+    onSearch: (searchText: string) => void;
+}
+
+const Navbar = ({ onSearch }: Props) => {
     return (
         <HStack padding={"15px"}>
             <Image src={randomImage} boxSize={"100px"} />
-            <SearchInput />
+            <SearchInput onSearch={onSearch} />
             <ColorModeSwitch />
         </HStack>
     );
